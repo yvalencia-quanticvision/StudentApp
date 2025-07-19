@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StudentApp.Domain.Entities.Estudiante>
+
+@{
+    ViewData["Title"] = "Listado de Estudiantes";
+}
+
+<h1>Estudiantes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nuevo Estudiante</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudiante in Model)
+        {
+            <tr>
+                <td>@estudiante.Nombre</td>
+                <td>@estudiante.Documento</td>
+                <td>@estudiante.Correo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@estudiante.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@estudiante.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a asp-action="Details" asp-route-id="@estudiante.Id" class="btn btn-info btn-sm">Detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
