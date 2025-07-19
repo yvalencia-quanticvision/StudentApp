@@ -1,0 +1,28 @@
+﻿@model StudentApp.Domain.Entities.Materia
+
+@{
+    ViewData["Title"] = "Editar Materia";
+}
+
+<h1>Editar Materia</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Codigo"></label>
+        <input asp-for="Codigo" class="form-control" />
+        <span asp-validation-for="Codigo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Creditos"></label>
+        <input asp-for="Creditos" class="form-control" />
+        <span asp-validation-for="Creditos" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,29 @@
+﻿@model StudentApp.Domain.Entities.EstudianteMateria
+
+@{
+    ViewData["Title"] = "Nueva Inscripción";
+}
+
+<h1>Inscribir Estudiante en Materia</h1>
+<a asp-controller="Estudiantes" asp-action="Index" class="btn btn-secondary">Volver a Estudiantes</a>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="EstudianteId" class="control-label"></label>
+        <select asp-for="EstudianteId" class="form-control" asp-items="ViewBag.EstudianteId"></select>
+        <span asp-validation-for="EstudianteId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MateriaId" class="control-label"></label>
+        <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.MateriaId"></select>
+        <span asp-validation-for="MateriaId" class="text-danger"></span>
+    </div>
+
+    <div class="text-danger">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

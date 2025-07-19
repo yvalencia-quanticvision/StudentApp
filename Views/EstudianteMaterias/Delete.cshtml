@@ -1,0 +1,22 @@
+﻿@model StudentApp.Domain.Entities.EstudianteMateria
+
+@{
+    ViewData["Title"] = "Eliminar Inscripción";
+}
+
+<h1>Eliminar Inscripción</h1>
+
+<h4>¿Estás seguro que deseas eliminar esta inscripción?</h4>
+
+<div>
+    <p><strong>Estudiante:</strong> @Model.Estudiante.Nombre</p>
+    <p><strong>Materia:</strong> @Model.Materia.Name</p>
+    <p><strong>Fecha de Inscripción:</strong> @Model.FechaInscripcion.ToShortDateString()</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" name="estudianteId" value="@Model.EstudianteId" />
+    <input type="hidden" name="materiaId" value="@Model.MateriaId" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

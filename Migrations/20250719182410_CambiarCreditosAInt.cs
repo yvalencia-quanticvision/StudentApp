@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace StudentApp.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class CambiarCreditosAInt : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,7 +34,7 @@ namespace StudentApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Codigo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Creditos = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Creditos = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,7 +46,8 @@ namespace StudentApp.Migrations
                 columns: table => new
                 {
                     EstudianteId = table.Column<int>(type: "int", nullable: false),
-                    MateriaId = table.Column<int>(type: "int", nullable: false)
+                    MateriaId = table.Column<int>(type: "int", nullable: false),
+                    FechaInscripcion = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

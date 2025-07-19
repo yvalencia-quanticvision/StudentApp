@@ -1,0 +1,15 @@
+﻿@model StudentApp.Domain.Entities.Materia
+
+@{
+    ViewData["Title"] = "Detalle de Materia";
+}
+
+<h1>Detalle de Materia</h1>
+
+<div>
+    <p><strong>Nombre:</strong> @Model.Name</p>
+    <p><strong>Código:</strong> @Model.Codigo</p>
+    <p><strong>Créditos:</strong> @Model.Creditos</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Volver</a>
